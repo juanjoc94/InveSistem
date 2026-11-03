@@ -1,6 +1,0 @@
-@InveSistem_HostAddress = http://localhost:5020
-
-GET {{InveSistem_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
