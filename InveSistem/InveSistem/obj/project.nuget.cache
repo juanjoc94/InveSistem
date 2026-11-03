@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "4QoNUJ+WJ8U=",
+  "success": false,
+  "projectFilePath": "/Users/juanjocbote173/Desktop/De la U/Semestre 4/POO/ejerciciosPOO/InveSistem/InveSistem/InveSistem.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "No se puede cargar el índice de servicio del origen https://api.nuget.org/v3/index.json.\n  La solicitud HTTP para \"GET https://api.nuget.org/v3/index.json\" ha agotado el tiempo de espera después de 100000 ms.",
+      "projectPath": "/Users/juanjocbote173/Desktop/De la U/Semestre 4/POO/ejerciciosPOO/InveSistem/InveSistem/InveSistem.csproj",
+      "filePath": "/Users/juanjocbote173/Desktop/De la U/Semestre 4/POO/ejerciciosPOO/InveSistem/InveSistem/InveSistem.csproj",
+      "targetGraphs": []
+    }
+  ]
+}
