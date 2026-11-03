@@ -2,5 +2,6 @@
   <Project Path="API/API.csproj" />
   <Project Path="Datos/Datos.csproj" />
   <Project Path="Modelos/Modelos.csproj" />
+  <Project Path="Pruebas/Pruebas.csproj" />
   <Project Path="Servicios/Servicios.csproj" />
 </Solution>
