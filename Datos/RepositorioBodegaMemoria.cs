@@ -1,7 +1,7 @@
 // TEMPORAL: lista en memoria. Lo reemplaza Juanjo por la base de datos.
-using API.Modelos;
+using Modelos;
 
-namespace API.Datos;
+namespace Datos;
 
 public class RepositorioBodegaMemoria : IRepositorioBodega
 {

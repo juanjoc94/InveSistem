@@ -1,36 +1,36 @@
-using API.Modelos.DTOs;
-using API.Servicios;
+using Modelos.DTOs;
+using Servicios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BodegaController : ControllerBase
+public class ProductoController : ControllerBase
 {
-    private readonly IServicioBodega _servicio;
+    private readonly IServicioProducto _servicio;
 
-    public BodegaController(IServicioBodega servicio) => _servicio = servicio;
+    public ProductoController(IServicioProducto servicio) => _servicio = servicio;
 
     [HttpGet]
-    public ActionResult<IEnumerable<BodegaDto>> Get() => Ok(_servicio.ObtenerTodos());
+    public ActionResult<IEnumerable<ProductoDto>> Get() => Ok(_servicio.ObtenerTodos());
 
     [HttpGet("{id:int}")]
-    public ActionResult<BodegaDto> Get(int id)
+    public ActionResult<ProductoDto> Get(int id)
     {
         var item = _servicio.ObtenerPorId(id);
         return item is null ? NotFound() : Ok(item);
     }
 
     [HttpPost]
-    public ActionResult<BodegaDto> Post(BodegaGuardarDto dto)
+    public ActionResult<ProductoDto> Post(ProductoGuardarDto dto)
     {
         var creado = _servicio.Crear(dto);
         return CreatedAtAction(nameof(Get), new { id = creado.Id }, creado);
     }
 
     [HttpPut("{id:int}")]
-    public ActionResult<BodegaDto> Put(int id, BodegaGuardarDto dto)
+    public ActionResult<ProductoDto> Put(int id, ProductoGuardarDto dto)
     {
         var actualizado = _servicio.Actualizar(id, dto);
         return actualizado is null ? NotFound() : Ok(actualizado);

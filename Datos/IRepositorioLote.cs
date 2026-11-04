@@ -1,7 +1,7 @@
 // TEMPORAL: esto lo reemplaza lo que suba Juanjo en la carpeta Datos.
-using API.Modelos;
+using Modelos;
 
-namespace API.Datos;
+namespace Datos;
 
 public interface IRepositorioLote
 {

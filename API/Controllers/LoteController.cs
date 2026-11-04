@@ -1,5 +1,5 @@
-using API.Modelos.DTOs;
-using API.Servicios;
+using Modelos.DTOs;
+using Servicios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
