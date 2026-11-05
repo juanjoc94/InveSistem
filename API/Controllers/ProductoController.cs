@@ -1,11 +1,13 @@
 using Modelos.DTOs;
 using Servicios;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "DirectorTecnico,DirectorOperativo,JefeDePlanta")]
 public class ProductoController : ControllerBase
 {
     private readonly IServicioProducto _servicio;
@@ -23,6 +25,7 @@ public class ProductoController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "DirectorTecnico,DirectorOperativo")]
     public ActionResult<ProductoDto> Post(ProductoGuardarDto dto)
     {
         var creado = _servicio.Crear(dto);
@@ -30,6 +33,7 @@ public class ProductoController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
+    [Authorize(Roles = "DirectorTecnico,DirectorOperativo")]
     public ActionResult<ProductoDto> Put(int id, ProductoGuardarDto dto)
     {
         var actualizado = _servicio.Actualizar(id, dto);
@@ -37,6 +41,7 @@ public class ProductoController : ControllerBase
     }
 
     [HttpDelete("{id:int}")]
+    [Authorize(Roles = "DirectorTecnico,DirectorOperativo")]
     public IActionResult Delete(int id) =>
         _servicio.Eliminar(id) ? NoContent() : NotFound();
 }

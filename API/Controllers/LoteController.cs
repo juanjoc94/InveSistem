@@ -1,11 +1,13 @@
 using Modelos.DTOs;
 using Servicios;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "DirectorTecnico,DirectorOperativo,JefeDePlanta")]
 public class LoteController : ControllerBase
 {
     private readonly IServicioLote _servicio;
@@ -23,6 +25,7 @@ public class LoteController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "DirectorTecnico,DirectorOperativo")]
     public ActionResult<LoteDto> Post(LoteGuardarDto dto)
     {
         try
@@ -37,6 +40,7 @@ public class LoteController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
+    [Authorize(Roles = "DirectorTecnico,DirectorOperativo")]
     public ActionResult<LoteDto> Put(int id, LoteGuardarDto dto)
     {
         try
@@ -51,6 +55,7 @@ public class LoteController : ControllerBase
     }
 
     [HttpDelete("{id:int}")]
+    [Authorize(Roles = "DirectorTecnico,DirectorOperativo")]
     public IActionResult Delete(int id) =>
         _servicio.Eliminar(id) ? NoContent() : NotFound();
 }
