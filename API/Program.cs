@@ -43,6 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(o => o.SwaggerEndpoint("/openapi/v1.json", "API"));
 }
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
